@@ -18,8 +18,8 @@ export function useSessionHistory() {
       if (!res.ok) throw new Error('Không thể tải lịch sử');
       const data: SessionDetail[] = await res.json();
       setSessions(data);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err));
     } finally {
       setLoading(false);
     }
@@ -34,8 +34,8 @@ export function useSessionHistory() {
       if (!res.ok) throw new Error('Không thể tải chi tiết phiên');
       const data: SessionDetail = await res.json();
       setCurrentSession(data);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : String(err));
     } finally {
       setLoading(false);
     }

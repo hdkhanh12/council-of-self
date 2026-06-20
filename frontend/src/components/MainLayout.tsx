@@ -6,7 +6,7 @@ import { useSessionHistory } from '@/hooks/useSessionHistory'
 import { useAuth } from '@/hooks/useAuth'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Plus, MessageSquare, ChevronLeft, ChevronRight, CheckCircle2, XCircle, AlertCircle, LogOut } from 'lucide-react'
+import { MessageSquare, ChevronLeft, ChevronRight, CheckCircle2, XCircle, AlertCircle, LogOut } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface MainLayoutProps {

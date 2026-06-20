@@ -3,8 +3,7 @@
 import { useEffect, useState } from 'react'
 import { fetchWithAuth } from '@/lib/apiClient'
 import ProtectedRoute from '@/components/ProtectedRoute'
-import { BarChart3, Users, Settings, Activity, ShieldAlert, CheckCircle, Clock } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { BarChart3, Users, Settings, Activity, ShieldAlert, Clock } from 'lucide-react'
 
 interface OverviewStats {
   total_sessions: number;
@@ -54,8 +53,8 @@ export default function AdminPage() {
         setStats(s)
         setUsers(u)
         setConfig(c)
-      } catch (err: any) {
-        setError(err.message)
+      } catch (err: unknown) {
+        setError(err instanceof Error ? err.message : String(err))
       } finally {
         setLoading(false)
       }
@@ -71,8 +70,8 @@ export default function AdminPage() {
       })
       if (!res.ok) throw new Error('Không thể cập nhật role')
       setUsers(users.map(u => u.user_id === userId ? { ...u, role: newRole } : u))
-    } catch (err: any) {
-      alert(err.message)
+    } catch (err: unknown) {
+      alert(err instanceof Error ? err.message : String(err))
     }
   }
 
@@ -169,8 +168,8 @@ export default function AdminPage() {
   )
 }
 
-function StatCard({ title, value, icon, sub, color }: any) {
-  const colorMap: any = {
+function StatCard({ title, value, icon, sub, color }: { title: string, value: string | number, icon: React.ReactNode, sub: string, color: string }) {
+  const colorMap: Record<string, string> = {
     blue: 'text-blue-400 bg-blue-500/10 border-blue-500/20',
     amber: 'text-amber-400 bg-amber-500/10 border-amber-500/20',
     green: 'text-green-400 bg-green-500/10 border-green-500/20',

@@ -57,12 +57,11 @@ export function ProgressStepper({ currentRound, status, nextAction, error }: Pro
           transition={{ duration: 0.5, ease: 'easeInOut' }}
         />
 
-        {steps.map((step, index) => {
+        {steps.map((step) => {
           const isSkipped = step.id === 3 && currentRound < 3 && activeStep > 3;
           const isPast = activeStep > step.id && !isSkipped;
           const isActive = activeStep === step.id && status !== 'error';
           const isError = activeStep === step.id && status === 'error';
-          const isPending = activeStep < step.id || isSkipped;
 
           return (
             <div key={step.id} className="relative z-10 flex flex-col items-center gap-3">

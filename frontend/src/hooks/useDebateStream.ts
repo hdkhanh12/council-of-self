@@ -93,13 +93,14 @@ export function useDebateStream() {
       // Once stream is done, if we aren't already completed/error
       setStatus((prev) => (prev === 'streaming' ? 'completed' : prev));
 
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('Stream error:', err);
       setStatus('error');
-      setError(err.message || 'Mất kết nối với máy chủ.');
+      setError(err instanceof Error ? err.message : 'Mất kết nối với máy chủ.');
     }
   }, []);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleEvent = (event: string, data: any) => {
     switch (event) {
       case 'turn':

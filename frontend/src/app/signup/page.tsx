@@ -40,7 +40,7 @@ export default function SignupPage() {
         const data = await res.json()
         setError(data.detail || 'Không thể đăng ký lúc này.')
       }
-    } catch (err) {
+    } catch {
       setError('Lỗi kết nối máy chủ.')
     } finally {
       setLoading(false)

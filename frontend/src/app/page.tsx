@@ -9,7 +9,7 @@ import { AgentCard } from '@/components/AgentCard'
 import { VerdictCard } from '@/components/VerdictCard'
 import { ProgressStepper } from '@/components/ProgressStepper'
 import { AgentRole } from '@/lib/agentTheme'
-import { Send, Sparkles, AlertCircle } from 'lucide-react'
+import { Send, Sparkles } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 const AGENT_ORDER: AgentRole[] = ['logic', 'emotion', 'risk', 'pleasure']
