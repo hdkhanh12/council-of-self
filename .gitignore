@@ -1,0 +1,36 @@
+# ==========================================
+# BACKEND CONFIGURATIONS
+# ==========================================
+backend/tests/
+backend/.env
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.pytest_cache/
+backend/*.egg-info/
+backend/requirements.lock.txt
+
+# ==========================================
+# FRONTEND CONFIGURATIONS
+# ==========================================
+frontend/node_modules/
+frontend/.pnp
+frontend/.pnp.js
+frontend/.yarn/install-state.gz
+frontend/coverage/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.vercel
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
+frontend/.env*.local
+
+# ==========================================
+# SYSTEM & LOGS CONFIGURATIONS
+# ==========================================
+.DS_Store
+*.pem
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
